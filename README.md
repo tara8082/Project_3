@@ -1,5 +1,6 @@
 # Classifying Airline Passenger Satisfaction
-This project uses a Kaggle data and fits classification models that balances recall and precision metrics with an emphasis on model interpretability. The dataset includes trip specific data, passenger specific data, and survey data on various components of the air travel experience. The use case for these results is to empower airlines with information regarding passenger's expectations for the air travel experience. With these insights, airlines can triangulate what causes dissastisfaction, optimize the categories causing dissatisfaction, and predict whether a customer is dissatisfied without a customer participating in a post flight survey.c
+This project uses a Kaggle data and fits classification models that balances recall and precision metrics with an emphasis on model interpretability. The dataset includes trip specific data, passenger specific data, and survey data on various components of the air travel experience. The use case for these results is to empower airlines with information regarding passenger's expectations for the air travel experience. With these insights, airlines can triangulate what causes dissastisfaction, optimize the categories causing dissatisfaction, and predict whether a customer is dissatisfied without a customer participating in a post flight survey.
+
 **Data Source**: https://www.kaggle.com/teejmahal20/airline-passenger-satisfaction
 
 **Tools Used:**
