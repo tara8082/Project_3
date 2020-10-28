@@ -13,9 +13,9 @@ data = pd.read_csv('df_clean.csv', index_col = 0)
 #st.dataframe(data) displays dataframe
 
 # Loading models and coefficients
-coefficients = pkl.load(open('/Users/Tara8082/GIT/ProjectGIT/Project_3/streamlit_logistic_coef3.pkl', 'rb'))
-log_model = pkl.load(open('/Users/Tara8082/GIT/ProjectGIT/Project_3/streamlit_logistic_model3.pkl', 'rb'))
-ss = pkl.load(open('/Users/Tara8082/GIT/ProjectGIT/Project_3/standard_scaler3.pkl', 'rb'))
+coefficients = pkl.load(open('/Users/Tara8082/GIT/ProjectGIT/Project_3/streamlit_logistic_coef4.pkl', 'rb'))
+log_model = pkl.load(open('/Users/Tara8082/GIT/ProjectGIT/Project_3/streamlit_logistic_model4.pkl', 'rb'))
+ss = pkl.load(open('/Users/Tara8082/GIT/ProjectGIT/Project_3/standard_scaler4.pkl', 'rb'))
 
 
 st.write("This is an application for predicting airline passenger satisfaction with a trained model from user inputs. Let's try it out!")
@@ -28,27 +28,27 @@ if check_data:
 st.write('Let us find out whether a passenger is "dissatisfied/neutral" or "satisfied" when we choose parameters.')
 
 # User inputs for features
-departure_delay = st.number_input('Departure Delay In Minutes', value = 0)
-inflight_wifi_service = st.number_input('Inflight Wifi Service', value= 0)
-customer_type = st.multiselect('Customer Type',['Loyal', 'Disloyal'], default = 'Loyal')
-type_of_travel = st.multiselect('Type Of Travel',['Personal', 'Business'], default = 'Business')
-seat_comfort = st.number_input('Seat Comfort', value = 0)
-airline_class = st.multiselect('Class',['Eco', 'Eco Plus', 'Business'], default = 'Business')
-inflight_service = st.number_input('Inflight Service', value = 3)
-ease_of_online_booking = st.number_input('Ease Of Online Booking', value = 0)
+departure_delay = st.number_input('Departure Delay In Minutes', value = 30)
+inflight_wifi_service = st.number_input('Inflight Wifi Service', value= 2)
+customer_type = st.multiselect('Customer Type',['Loyal', 'Disloyal'])
+type_of_travel = st.multiselect('Type Of Travel',['Personal', 'Business'])
+seat_comfort = st.number_input('Seat Comfort', value = 3)
+airline_class = st.multiselect('Class',['Eco', 'Eco Plus', 'Business'])
+inflight_service = st.number_input('Inflight Service', value = 0)
+ease_of_online_booking = st.number_input('Ease Of Online Booking', value = 3)
 gate_location = st.number_input('Gate Location', value = 3)
-online_boarding = st.number_input('Online Boarding',value = 3)
-inflight_entertainment = st.number_input('Inflight Entertainment', value = 3)
+#online_boarding = st.number_input('Online Boarding',value = 3)
+inflight_entertainment = st.number_input('Inflight Entertainment', value = 2)
 food_and_drink = st.number_input('Food And Drink',value = 3)
-cleanliness = st.number_input('Cleanliness', value = 3)
-gender = st.multiselect('Gender', ['Female', 'Male'], default = 'Female')
+cleanliness = st.number_input('Cleanliness', value = 5)
+gender = st.multiselect('Gender', ['Female', 'Male'])
 age = st.number_input('Age', value = 35)
 flight_distance = st.number_input('Flight Distance', value = 500)
-dep_arr_time_convenience = st.number_input('Departure/Arrival Time Convenience', value = 3)
+dep_arr_time_convenience = st.number_input('Departure/Arrival Time Convenience', value = 4)
 onboard_service = st.number_input('Onboard Service', value = 3)
-leg_room_service = st.number_input('Legroom Service', value = 3)
+leg_room_service = st.number_input('Legroom Service', value = 4)
 baggage_handling = st.number_input('Baggage Handling', value = 3)
-checkin_service = st.number_input('Checkin Service', value = 3)
+checkin_service = st.number_input('Checkin Service', value = 4)
 
 gender_male = 0
 gender_female = 0
@@ -88,7 +88,7 @@ else:
 # Setting up input data dictionary:
 input_data = {'Age': [age], 'Flight Distance' : [flight_distance], 'Inflight Wifi Service': [inflight_wifi_service], 
                             'Dep Arr Time Convenience': [dep_arr_time_convenience], 'Ease Of Online Booking': [ease_of_online_booking],
-                            'Gate Location': [gate_location], 'Food And Drink':[food_and_drink], 'Online Boarding': [online_boarding],
+                            'Gate Location': [gate_location], 'Food And Drink':[food_and_drink],
                             'Seat Comfort' : [seat_comfort], 'Inflight Entertainment': [inflight_entertainment], 'Onboard Service': [onboard_service],
                             'Leg Room Service': [leg_room_service], 'Baggage Handling': [baggage_handling], 'Checkin Service': [checkin_service],
                             'Inflight Service': [inflight_service], 'Cleanliness':[cleanliness], 'Departure Delay In Minutes': [departure_delay],
@@ -138,8 +138,8 @@ predict_button = st.button('Predict')
 if predict_button:
     result = prediction(input_data_preprocessed)[0]
     if result == 1:
-        st.write('The passenger is "Dissatisfied/Neutral".')
-    else:
+        st.write('The passenger is "Dissatisfied/Neutral". Send request to Customer Service.')
+    elif result == 0:
         st.write('The passenger is "Satisfied".')
 
 st.markdown('Created by **Tara Ziegler**')
