@@ -1,9 +1,9 @@
 # Classifying Airline Passenger Satisfaction
 This project uses a Kaggle data and fits classification models that balances recall and precision metrics with an emphasis on model interpretability. The data is comprised of trip specific data, passenger specific data, and survey data on various components of the air travel experience. The use case for these results is to empower airlines with information regarding passenger's expectations for the air travel experience. With this information, airlines can triangulate what causes dissastisfaction and predict whether a customer is dissatisfied without a customer taking a post flight survey. 
 
-Data Source: https://www.kaggle.com/teejmahal20/airline-passenger-satisfaction
+**Data Source**: https://www.kaggle.com/teejmahal20/airline-passenger-satisfaction
 
-Tools Used:
+**Tools Used:**
 * Postgres
 * SQL
 * Python 3
@@ -19,7 +19,7 @@ The best model to meet this project's goal is logistic regression. The top 5 fea
 4. Type of Customer (Loyal/Disloyal)
 5. Cleanliness
 
-### Outline of Files
+## Outline of Files
 1. The ipynb files contain exploratory data analyatics and techniques used for model tuning and selection.
 2. The pickle file contains pickles of the final trained logistic regression model, the coeffiecients, and the scaler.
 3. The CSV files contains the Kaggle data set (divided into train and test) and the cleaned dataframe.
